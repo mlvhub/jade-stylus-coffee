@@ -8,7 +8,7 @@ requirejs.config
   baseUrl: '/base/app/dist/scripts'
 
   paths:
-    lodash: '../../../bower_components/lodash/dist/lodash.min'
+    lodash: '../../bower_components/lodash/dist/lodash.min'
 
   shim:
     'lodash':
