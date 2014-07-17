@@ -69,7 +69,7 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           open: true,
-          base: ['<%= yeoman.app %>7<%= yeoman.dist %>']
+          base: ['<%= yeoman.app %>/<%= yeoman.dist %>']
         }
       },
       dist: {
