@@ -69,7 +69,7 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           open: true,
-          base: ['<%= yeoman.app %>']
+          base: ['<%= yeoman.app %>7<%= yeoman.dist %>']
         }
       },
       dist: {
@@ -82,15 +82,15 @@ module.exports = function(grunt) {
     jade: {
       index: {
         files: {
-          '<%= yeoman.app %>/index.html': '<%= yeoman.app %>/index.jade'
+          '<%= yeoman.app %>/<%= yeoman.dist %>/index.html': '<%= yeoman.app %>/index.jade'
         }
       },
       templates: {
-        files: grunt.file.expandMapping(['<%= yeoman.app %>/<%= yeoman.templates %>/**/*.jade'], '<%= yeoman.app %>/<%= yeoman.dist %>/<%= yeoman.templates %>', {
-          rename: function(base, path) {
-            return base + path.replace(/\.jade/, 'html');
-          }
-        })
+        expand: true,
+        cwd: '<%= yeoman.app %>',
+        src: ['<%= yeoman.templates %>/**/*.jade'],
+        dest: '<%= yeoman.app %>/<%= yeoman.dist %>/',
+        ext: '.html'
       }
     },
 
