@@ -1,24 +1,22 @@
 require.config
-  baseUrl: 'dist/scripts'
+  baseUrl: 'scripts'
 
   paths:
     'lodash': '../../bower_components/lodash/dist/lodash.min'
     'angular': '../../bower_components/angular/angular.min'
     'angular-route': '../../bower_components/angular-route/angular-route.min'
-    'domReady': '../../bower_components/requirejs-domready/domReady'
 
   shim:
     'angular': 
       exports: 'angular'
-      deps: ['domReady!']
-    'angular-route':
-      deps: ['angular']
+    'angular-route': ['angular']
 
-define [
-  'require',
+  priority: ['angular']
+
+require [
   'angular',
   'app',
   'routes'
-], (require, angular) ->
-  require ['domReady!'], (document) ->
-    angular.bootstrap(document, ['app'])
+], (angular, app, routes) ->
+  angular.element(document).ready ->
+    angular.bootstrap(document, [app['name']])

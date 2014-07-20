@@ -1,26 +1,23 @@
 (function() {
   require.config({
-    baseUrl: 'dist/scripts',
+    baseUrl: 'scripts',
     paths: {
       'lodash': '../../bower_components/lodash/dist/lodash.min',
       'angular': '../../bower_components/angular/angular.min',
-      'angular-route': '../../bower_components/angular-route/angular-route.min',
-      'domReady': '../../bower_components/requirejs-domready/domReady'
+      'angular-route': '../../bower_components/angular-route/angular-route.min'
     },
     shim: {
       'angular': {
-        exports: 'angular',
-        deps: ['domReady!']
+        exports: 'angular'
       },
-      'angular-route': {
-        deps: ['angular']
-      }
-    }
+      'angular-route': ['angular']
+    },
+    priority: ['angular']
   });
 
-  define(['require', 'angular', 'app', 'routes'], function(require, angular) {
-    return require(['domReady!'], function(document) {
-      return angular.bootstrap(document, ['app']);
+  require(['angular', 'app', 'routes'], function(angular, app, routes) {
+    return angular.element(document).ready(function() {
+      return angular.bootstrap(document, [app['name']]);
     });
   });
 

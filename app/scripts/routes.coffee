@@ -1,8 +1,11 @@
-define ['app'], (app) ->
+define ['angular', 'app'], (angular, app) ->
 
-  app.config ['$routeProvider', ($routeProvider) ->
+  console.log app
+  app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
+    $locationProvider.html5Mode true
+
     $routeProvider.when '/',
-      templateUrl: 'index.html'
+      templateUrl: 'templates/login.html'
       controller: 'HomeController'
 
     $routeProvider.when '/login',
@@ -13,6 +16,5 @@ define ['app'], (app) ->
       templateUrl: 'templates/sign-in.html'
       controller: 'HomeController'
 
-    $routeProvider.otherwise
-      redirectTo: '/'
+    $routeProvider.otherwise redirectTo: '/'
   ]

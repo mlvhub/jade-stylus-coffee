@@ -1,9 +1,11 @@
 (function() {
-  define(['app'], function(app) {
+  define(['angular', 'app'], function(angular, app) {
+    console.log(app);
     return app.config([
-      '$routeProvider', function($routeProvider) {
+      '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
         $routeProvider.when('/', {
-          templateUrl: 'index.html',
+          templateUrl: 'templates/login.html',
           controller: 'HomeController'
         });
         $routeProvider.when('/login', {
