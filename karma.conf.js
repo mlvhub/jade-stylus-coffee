@@ -18,7 +18,7 @@ module.exports = function(config) {
       'test/specs/config/main-test.js',
       {pattern: 'app/dist/scripts/**/*.js', included: false},
       {pattern: 'test/specs/**/*Spec.js', included: false},
-      {pattern: 'app/bower_components/lodash/dist/lodash.min.js', included: false}
+      {pattern: 'app/dist/bower_components/lodash/dist/lodash.min.js', included: false}
     ],
 
 
