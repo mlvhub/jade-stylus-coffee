@@ -1,14 +1,13 @@
 require.config
-  baseUrl: 'scripts'
+  baseUrl: '../scripts'
 
   paths:
-    'lodash': '../../bower_components/lodash/dist/lodash.min'
-    'angular': '../../bower_components/angular/angular.min'
-    'angular-route': '../../bower_components/angular-route/angular-route.min'
+    'lodash': '../bower_components/lodash/dist/lodash.min'
+    'angular': '../bower_components/angular/angular.min'
+    'angular-route': '../bower_components/angular-route/angular-route.min'
 
   shim:
-    'angular': 
-      exports: 'angular'
+    'angular': exports: 'angular'
     'angular-route': ['angular']
 
   priority: ['angular']
@@ -19,4 +18,4 @@ require [
   'routes'
 ], (angular, app, routes) ->
   angular.element(document).ready ->
-    angular.bootstrap(document, [app['name']])
+    angular.bootstrap(document, [app.name])

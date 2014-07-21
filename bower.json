@@ -19,7 +19,6 @@
     "requirejs": "~2.1.14",
     "lodash": "~2.4.1",
     "angular": "~1.2.20",
-    "requirejs-domready": "~2.0.1",
     "angular-route": "~1.2.20"
   }
 }

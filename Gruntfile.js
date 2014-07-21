@@ -6,6 +6,8 @@ module.exports = function(grunt) {
 
   require('time-grunt')(grunt);
 
+  var modRewrite = require('connect-modrewrite');
+
   grunt.initConfig({
     
     yeoman: {
@@ -68,8 +70,17 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: {
+          base: ['<%= yeoman.app %>/<%= yeoman.dist %>'],
           open: true,
-          base: ['<%= yeoman.app %>/<%= yeoman.dist %>']
+          middleware: function(connect, options) {
+            var middlewares = [];
+ 
+            middlewares.push(modRewrite(['^[^\\.]*$ /index.html [L]'])); //Matches everything that does not contain a '.' (period)
+            options.base.forEach(function(base) {
+              middlewares.push(connect.static(base));
+            });
+            return middlewares;
+          }
         }
       },
       dist: {

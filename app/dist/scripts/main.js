@@ -1,10 +1,10 @@
 (function() {
   require.config({
-    baseUrl: 'scripts',
+    baseUrl: '../scripts',
     paths: {
-      'lodash': '../../bower_components/lodash/dist/lodash.min',
-      'angular': '../../bower_components/angular/angular.min',
-      'angular-route': '../../bower_components/angular-route/angular-route.min'
+      'lodash': '../bower_components/lodash/dist/lodash.min',
+      'angular': '../bower_components/angular/angular.min',
+      'angular-route': '../bower_components/angular-route/angular-route.min'
     },
     shim: {
       'angular': {
@@ -17,7 +17,7 @@
 
   require(['angular', 'app', 'routes'], function(angular, app, routes) {
     return angular.element(document).ready(function() {
-      return angular.bootstrap(document, [app['name']]);
+      return angular.bootstrap(document, [app.name]);
     });
   });
 
