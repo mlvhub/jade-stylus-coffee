@@ -6,7 +6,7 @@ for file of window.__karma__.files
     tests.push file
 
 requirejs.config
-  baseUrl: '/base/app/dist/scripts'
+  baseUrl: '/base/app/scripts'
 
   paths:
     lodash: '../bower_components/lodash/dist/lodash.min'
