@@ -1,18 +1,21 @@
-define ['angular', 'app'], (angular, app) ->
+define ['angular', 'angular-route'], (angular, ngRoute) ->
 
-  app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
+  routes = angular.module 'routes', ['ngRoute']
+  routes.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
     $locationProvider.html5Mode true
 
+    template = (fileName) -> '../templates/' + fileName + '.html'
+
     $routeProvider.when '/',
-      templateUrl: '../templates/login.html'
+      templateUrl: template('login')
 
     $routeProvider.when '/login',
-      templateUrl: '../templates/login.html'
+      templateUrl: template('login')
       controller: ->
         console.log 'logging in'
 
     $routeProvider.when '/sign-in',
-      templateUrl: '../templates/sign-in.html'
+      templateUrl: template('sign-in')
 
     $routeProvider.otherwise redirectTo: '/'
   ]

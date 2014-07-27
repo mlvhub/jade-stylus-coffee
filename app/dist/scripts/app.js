@@ -1,6 +1,6 @@
 (function() {
-  define(['angular', 'angular-route'], function(angular, ngRoute) {
-    return angular.module('app', ['ngRoute']);
+  define(['angular', 'routes'], function(angular, ngRoute, routes) {
+    return angular.module('app', ['routes']);
   });
 
 }).call(this);
