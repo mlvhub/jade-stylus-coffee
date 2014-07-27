@@ -15,16 +15,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/specs/config/main-test.js',
-      {pattern: 'app/dist/scripts/**/*.js', included: false},
-      {pattern: 'test/specs/**/*Spec.js', included: false},
-      {pattern: 'app/dist/bower_components/lodash/dist/lodash.min.js', included: false}
+      'test/main-test.js',
+      {pattern: 'app/scripts/**/*.js', included: false},
+      {pattern: 'test/unit/**/*Spec.js', included: false},
+      {pattern: 'app/bower_components/lodash/dist/lodash.min.js', included: false}
     ],
 
 
     // list of files to exclude
     exclude: [
-      'app/dist/scripts/main.js'
+      'app/scripts/main.js'
     ],
 
 

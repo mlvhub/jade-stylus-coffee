@@ -11,7 +11,7 @@
   }
 
   requirejs.config({
-    baseUrl: '/base/app/dist/scripts',
+    baseUrl: '/base/app/scripts',
     paths: {
       lodash: '../bower_components/lodash/dist/lodash.min'
     },
