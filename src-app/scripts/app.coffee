@@ -3,5 +3,5 @@ define [
   'routes'
 ], (angular, routes) ->
   angular.module 'app', [
-    'routes'
+    'app.routes'
   ]
