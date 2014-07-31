@@ -18,7 +18,10 @@ module.exports = function(config) {
       'test/main-test.js',
       {pattern: 'app/scripts/**/*.js', included: false},
       {pattern: 'test/unit/**/*Spec.js', included: false},
-      {pattern: 'app/bower_components/lodash/dist/lodash.min.js', included: false}
+      {pattern: 'app/bower_components/lodash/dist/lodash.min.js', included: false},
+      {pattern: 'app/bower_components/angular/angular.min.js', included: false},
+      {pattern: 'app/bower_components/angular-route/angular-route.min.js', included: false},
+      {pattern: 'app/bower_components/angular-mocks/angular-mocks.js', included: false}
     ],
 
 

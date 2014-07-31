@@ -9,11 +9,19 @@ requirejs.config
   baseUrl: '/base/app/scripts'
 
   paths:
+    angular: '../bower_components/angular/angular.min'
+    angularMocks: '../bower_components/angular-mocks/angular-mocks'
+    angularRoute: '../bower_components/angular-route/angular-route.min'
     lodash: '../bower_components/lodash/dist/lodash.min'
 
   shim:
     'lodash':
       exports: '_'
+    angular: exports: 'angular'
+    angularRoute: ['angular']
+    angularMocks:
+      deps: ['angular']
+      exports: 'angular.mock'
 
   deps: tests
 

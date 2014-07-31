@@ -1,7 +1,7 @@
 define [
   'angular',
   'routes'
-], (angular, ngRoute, routes) ->
+], (angular, routes) ->
   angular.module 'app', [
     'routes'
   ]

@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       },
       coffeeSrc: {
         files: [
-          '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.coffee'
+          '<%= yeoman.srcApp %>/<%= yeoman.scripts %>/**/*.coffee'
         ],
         tasks: ['clean:coffee:src', 'coffee:src']
       },
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         files: [
           '<%= yeoman.srcTest %>/<%= yeoman.unit%>/**/*.coffee'
         ],
-        tasks: ['clean:coffee:test', 'coffee:test']
+        tasks: ['clean:coffee:test', 'coffee']
       },
       stylus: {
         files: ['<%= yeoman.srcApp %>/<%= yeoman.styles %>/**/*.styl'],

@@ -1,11 +1,11 @@
 {
-  "name": "HamlSassCoffeescript",
+  "name": "JadeStylusCoffeescript",
   "version": "0.0.0",
   "homepage": "https://github.com/mlvhub/Learning",
   "authors": [
     "Miguel <miguellova@gmail.com>"
   ],
-  "description": "Template to use with Jade, Sass and Coffeescript",
+  "description": "Template to use with Jade, Stylus and Coffeescript",
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -19,6 +19,7 @@
     "requirejs": "~2.1.14",
     "lodash": "~2.4.1",
     "angular": "~1.2.20",
-    "angular-route": "~1.2.20"
+    "angular-route": "~1.2.20",
+    "angular-mocks": "~1.2.21"
   }
 }

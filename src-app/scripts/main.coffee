@@ -1,14 +1,16 @@
 require.config
-  baseUrl: '../../dist/scripts'
+  baseUrl: '../scripts'
 
   paths:
-    'lodash': '../bower_components/lodash/dist/lodash.min'
-    'angular': '../bower_components/angular/angular.min'
-    'angular-route': '../bower_components/angular-route/angular-route.min'
+    lodash: '../bower_components/lodash/dist/lodash.min'
+    angular: '../bower_components/angular/angular.min'
+    angularRoute: '../bower_components/angular-route/angular-route.min'
 
   shim:
-    'angular': exports: 'angular'
-    'angular-route': ['angular']
+    'lodash':
+      exports: '_'
+    angular: exports: 'angular'
+    angularRoute: ['angular']
 
   priority: ['angular']
 

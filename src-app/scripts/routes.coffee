@@ -1,10 +1,11 @@
-define ['angular', 'angular-route'], (angular, ngRoute) ->
+define ['angular', 'angularRoute'], (angular, ngRoute) ->
 
-  routes = angular.module 'routes', ['ngRoute']
+  console.log 'ROUTES ARE BEING EFFING LOADED!!! 1'
+  routes = angular.module 'app.routes', ['ngRoute']
   routes.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
-    $locationProvider.html5Mode true
 
     template = (fileName) -> '../templates/' + fileName + '.html'
+    console.log 'ROUTES ARE BEING EFFING LOADED!!! !!!2'
 
     $routeProvider.when '/',
       templateUrl: template('login')
@@ -18,4 +19,6 @@ define ['angular', 'angular-route'], (angular, ngRoute) ->
       templateUrl: template('sign-in')
 
     $routeProvider.otherwise redirectTo: '/'
+
+    $locationProvider.html5Mode true
   ]
