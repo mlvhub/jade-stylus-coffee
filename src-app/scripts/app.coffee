@@ -1,7 +1,9 @@
 define [
   'angular',
-  'routes'
+  'routes',
+  'todo/module'
 ], (angular, routes) ->
   angular.module 'app', [
-    'app.routes'
+    'app.routes',
+    'todo'
   ]
