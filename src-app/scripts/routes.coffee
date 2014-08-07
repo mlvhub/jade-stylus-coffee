@@ -19,7 +19,6 @@ define ['angular', 'angularRoute'], (angular, ngRoute) ->
     $routeProvider.when '/todos',
       templateUrl: template('todo/index')
       controller: 'TodoCtrl'
-      controllerAs: 'Todo'
 
     $routeProvider.when '/login',
       templateUrl: template('login')

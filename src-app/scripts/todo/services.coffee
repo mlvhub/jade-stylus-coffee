@@ -1,13 +1,12 @@
-define ['angular', 'lodash'], (angular, _) ->
+define ['angular', 'angularResource'], (angular, ngResource) ->
 
-  angular.module 'todo.services', []
-    .factory 'Todo', ->
-      todos = [{id:1,title:'Todo1',done:false}]
+  angular.module 'todo.services', ['ngResource']
+    .factory 'Todo', [
+      '$resource', 
+      ($resource) ->
+        url = 'http://localhost:1337/todo/:todoId'
+        $resource(url, {todoId: '@todoId'},
+          update: {method: 'PUT'}
+        )
+    ]
 
-      all: -> todos
-      save: (todo) -> todos.push(todo)
-      delete: (todo) ->
-        todos = _.reject todos, (storedTodo) ->
-          storedTodo.id == todo.id
-      get: (todo) -> _.find storedTodo, ->
-        storedTodo.id == todo.id

@@ -22,8 +22,7 @@
         });
         $routeProvider.when('/todos', {
           templateUrl: template('todo/index'),
-          controller: 'TodoCtrl',
-          controllerAs: 'Todo'
+          controller: 'TodoCtrl'
         });
         $routeProvider.when('/login', {
           templateUrl: template('login'),
