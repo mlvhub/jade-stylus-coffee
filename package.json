@@ -18,11 +18,6 @@
     "grunt-contrib-jasmine": "^0.6.5",
     "grunt-contrib-stylus": "^0.18.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-karma": "^0.8.3",
-    "karma": "^0.12.17",
-    "karma-chrome-launcher": "^0.1.4",
-    "karma-jasmine": "^0.1.5",
-    "karma-requirejs": "^0.2.2",
     "load-grunt-tasks": "^0.6.0",
     "time-grunt": "^0.3.2"
   }

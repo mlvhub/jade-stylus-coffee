@@ -26,26 +26,13 @@ module.exports = function(grunt) {
       },
       coffeeSrc: {
         files: [
-          '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.coffee'
+          '<%= yeoman.srcApp %>/<%= yeoman.scripts %>/**/*.coffee'
         ],
         tasks: ['clean:coffee:src', 'coffee:src']
-      },
-      coffeeTest: {
-        files: [
-          '<%= yeoman.srcTest %>/<%= yeoman.unit%>/**/*.coffee'
-        ],
-        tasks: ['clean:coffee:test', 'coffee:test']
       },
       stylus: {
         files: ['<%= yeoman.srcApp %>/<%= yeoman.styles %>/**/*.styl'],
         tasks: ['clean:stylus', 'stylus'],
-      },
-      karma: {
-        files: [
-          '<%= yeoman.srcApp %>/<%= yeoman.scripts %>/**/*.coffee',
-          '<%= yeoman.srcTest %>/<%= yeoman.unit %>/**/*.coffee'
-        ],
-        tasks: ['karma:unit:run']
       },
       gruntFile: {
         files: ['Gruntfile.js']
@@ -101,13 +88,6 @@ module.exports = function(grunt) {
         src: ['<%= yeoman.scripts %>/**/*.coffee'],
         dest: '<%= yeoman.app %>',
         ext: '.js'
-      },
-      test: {
-        expand: true,
-        cwd: '<%= yeoman.srcTest %>',
-        src: ['**/*.coffee'],
-        dest: '<%= yeoman.test %>',
-        ext: '.js'
       }
     },
 
@@ -141,28 +121,6 @@ module.exports = function(grunt) {
       specs: {
         src: ['<%= yeoman.test %>/<%= yeoman.specs %>/*']
       }
-    },
-
-    karma: {
-      options: {
-        configFile: 'karma.conf.js',
-        runnerPort: 9876
-      },
-      unit: {
-        background: true
-      }
-    },
-
-    jasmine: {
-      tests: {
-        src: '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js',
-        options: {
-          specs: '<%= yeoman.test %>/<%= yeoman.unit %>/**/*.js',
-          vendor: [
-            'bower_components/requirejs/require.js'
-          ]
-        }
-      }
     }
 
   });
@@ -176,7 +134,6 @@ module.exports = function(grunt) {
       'clean',
       'concurrent:server',
       'connect:livereload',
-      'karma:unit:start',
       'watch'
     ]);
   });
