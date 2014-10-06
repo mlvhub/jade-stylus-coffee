@@ -1,5 +1,5 @@
 (function() {
-  define(['angular', 'todo/services', 'todo/controllers'], function(angular, todoServices, todoControllers) {
+  define(['angular', 'Todo/services', 'Todo/controllers'], function(angular, todoServices, todoControllers) {
     return angular.module('todo', ['todo.services', 'todo.controllers']);
   });
 

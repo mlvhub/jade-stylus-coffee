@@ -11,12 +11,12 @@
   }
 
   requirejs.config({
-    baseUrl: '/base/app/scripts',
+    baseUrl: '../',
     paths: {
-      angular: '../bower_components/angular/angular.min',
-      angularMocks: '../bower_components/angular-mocks/angular-mocks',
-      angularRoute: '../bower_components/angular-route/angular-route.min',
-      lodash: '../bower_components/lodash/dist/lodash.min'
+      angular: 'bower_components/angular/angular.min',
+      angularMocks: 'bower_components/angular-mocks/angular-mocks',
+      angularRoute: 'bower_components/angular-route/angular-route.min',
+      lodash: 'bower_components/lodash/dist/lodash.min'
     },
     shim: {
       'lodash': {

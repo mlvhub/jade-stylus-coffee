@@ -1,8 +1,9 @@
 define [
   'angular',
-  'routes',
-  'todo/module'
+  'config/routes',
+  'Todo/module'
 ], (angular, routes) ->
+  console.log('app')
   angular.module 'app', [
     'app.routes',
     'todo'

@@ -10,6 +10,7 @@ define ['angular'], (angular) ->
 
       $scope.save = (todoData) ->
         todo = new Todo(todoData)
+        todo.isDone = false;
         todo.$save().then ->
           $scope.loadTodos()
 
