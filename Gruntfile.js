@@ -12,11 +12,10 @@ module.exports = function(grunt) {
       app: 'app',
       srcApp: 'src-app',
       srcTest: 'src-test',
-      scripts: 'scripts',
-      styles: 'styles',
-      templates: 'templates',
       test: 'test',
-      unit: 'unit'
+      unit: 'unit',
+      assets: 'assets',
+      images: 'images'
     },
 
     watch: {
@@ -26,7 +25,7 @@ module.exports = function(grunt) {
       },
       coffeeSrc: {
         files: [
-          '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.coffee'
+          '<%= yeoman.app %>/**/*.coffee'
         ],
         tasks: ['clean:coffee:src', 'coffee:src']
       },
@@ -37,12 +36,12 @@ module.exports = function(grunt) {
         tasks: ['clean:coffee:test', 'coffee:test']
       },
       stylus: {
-        files: ['<%= yeoman.srcApp %>/<%= yeoman.styles %>/**/*.styl'],
+        files: ['<%= yeoman.srcApp %>/**/*.styl'],
         tasks: ['clean:stylus', 'stylus'],
       },
       karma: {
         files: [
-          '<%= yeoman.srcApp %>/<%= yeoman.scripts %>/**/*.coffee',
+          '<%= yeoman.srcApp %>/**/*.coffee',
           '<%= yeoman.srcTest %>/<%= yeoman.unit %>/**/*.coffee'
         ],
         tasks: ['karma:unit:run']
@@ -55,12 +54,10 @@ module.exports = function(grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.srcApp %>/*.jade',
-          '<%= yeoman.srcApp %>/<%= yeoman.templates%>/**/*.jade',
-          '<%= yeoman.srcApp %>/<%= yeoman.scripts%>/**/*.coffee',
-          '<%= yeoman.srcApp %>/<%= yeoman.styles%>/**/*.scss',
-          '<%= yeoman.srcApp %>/<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}',
-          '<$= yeoman.app %>/**/*'
+          '<%= yeoman.srcApp %>/**/*.jade',
+          '<%= yeoman.srcApp %>/**/*.coffee',
+          '<%= yeoman.srcApp %>/**/*.styl',
+          '<%= yeoman.srcApp %>/<% yeoman.assets %>/<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -88,7 +85,7 @@ module.exports = function(grunt) {
       templates: {
         expand: true,
         cwd: '<%= yeoman.srcApp %>',
-        src: ['<%= yeoman.templates %>/**/*.jade'],
+        src: ['**/*.jade'],
         dest: '<%= yeoman.app %>',
         ext: '.html'
       }
@@ -98,7 +95,7 @@ module.exports = function(grunt) {
       src: {
         expand: true,
         cwd: '<%= yeoman.srcApp %>/',
-        src: ['<%= yeoman.scripts %>/**/*.coffee'],
+        src: ['**/*.coffee'],
         dest: '<%= yeoman.app %>',
         ext: '.js'
       },
@@ -114,7 +111,7 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         files: {
-          '<%= yeoman.app %>/<%= yeoman.styles %>/main.css': ['<%= yeoman.srcApp %>/<%= yeoman.styles %>/*.styl']
+          '<%= yeoman.app %>/<%= yeoman.assets %>/main.css': ['<%= yeoman.srcApp %>/**/*.styl']
         }
       }
     },
@@ -129,17 +126,17 @@ module.exports = function(grunt) {
 
     clean: {
       jade: {
-        src: ['<%= yeoman.app %>/<%= yeoman.templates %>/*']
+        src: ['<%= yeoman.app %>/**/*.html']
       },
       stylus: {
-        src: ['<%= yeoman.app %>/<%= yeoman.styles %>/*']
+        src: ['<%= yeoman.app %>/**/*.css']
       },
       coffee: {
-        src: ['<%= yeoman.app %>/<%= yeoman.scripts %>/*'],
+        src: ['<%= yeoman.app %>/**/*.js', '!<%= yeoman.app %>/bower_components/**'],
         test: ['<%= yeoman.test %>']
       },
       specs: {
-        src: ['<%= yeoman.test %>/<%= yeoman.specs %>/*']
+        src: ['<%= yeoman.test %>/<%= yeoman.unit %>/*']
       }
     },
 
@@ -155,7 +152,7 @@ module.exports = function(grunt) {
 
     jasmine: {
       tests: {
-        src: '<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js',
+        src: '<%= yeoman.app %>/**/*.js',
         options: {
           specs: '<%= yeoman.test %>/<%= yeoman.unit %>/**/*.js',
           vendor: [
